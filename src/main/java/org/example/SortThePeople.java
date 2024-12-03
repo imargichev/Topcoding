@@ -1,5 +1,7 @@
 package org.example;
 
+import java.util.LinkedHashMap;
+
 /**
  * You are given an array of strings names, and an array heights that consists of distinct positive integers. Both arrays are of length n.
  *
@@ -19,6 +21,22 @@ package org.example;
  */
 public class SortThePeople {
     public static void main(String[] args) {
+        String[] names = {"Mary","John","Emma"};
+        int[] heights = {180,165,170};
+        String[] sortByHeight = sortPeople(names,heights);
 
+        for (String s : sortByHeight){
+            System.out.println(s);
+        }
+    }
+
+    public static String[] sortPeople(String[] names, int[] heights) {
+        LinkedHashMap<Integer,String> allPeople = new LinkedHashMap<>();
+
+        for (int i = 0; i < heights.length; i++) {
+            allPeople.put(heights[i],names[i]);
+        }
+        String[] sortedNames = allPeople.values().toArray(new String[0]);
+        return sortedNames;
     }
 }
