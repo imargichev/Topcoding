@@ -1,24 +1,27 @@
 package org.example;
 
-import java.util.HashSet;
-import java.util.List;
+import java.util.*;
 
 public class SubarraysDistinctElementSumOfSquaresI {
     public static void main(String[] args) {
-        List<Integer> nums = List.of(1,2,3);
-        System.out.println(sumCounts(nums));
+        List<Integer> list = Arrays.asList(1, 2, 1);
+        int sortedArr = frequencySort(list);
+        System.out.println(sortedArr);
     }
-    public static int sumCounts(List<Integer> nums) {
+
+    public static int frequencySort(List<Integer> nums) {
         int n = nums.size();
+        int totalSum = 0;
 
-        HashSet<Integer> storedNumbers = new HashSet<>(nums);
-
-        int sum = 0;
-
-        for (Integer number : storedNumbers){
-            sum += (int) Math.sqrt(number);
+        for (int i = 0; i < n; i++) {
+            Set<Integer> distinctElements = new HashSet<>();
+            for (int j = i; j < n; j++) {
+                distinctElements.add(nums.get(j));
+                int distinctCount = distinctElements.size();
+                totalSum += distinctCount * distinctCount;
+            }
         }
 
-        return sum;
+        return totalSum;
     }
 }
