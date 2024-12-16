@@ -1,6 +1,4 @@
-package org.example;
-
-import java.util.HashSet;
+package org.example.arrays;
 
 /**
  * Given an array of strings patterns and a string word, this class contains a method to return the number of strings in patterns that exist as a substring in word.

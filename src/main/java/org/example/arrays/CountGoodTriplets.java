@@ -1,4 +1,4 @@
-package org.example;
+package org.example.arrays;
 
 /**
  * This class contains a method to count the number of good triplets in an array.

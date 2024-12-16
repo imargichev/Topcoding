@@ -1,6 +1,4 @@
-package org.example;
-
-import java.util.Arrays;
+package org.example.arrays;
 
 public class ArrayPartition {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package org.example;
+package org.example.arrays;
 
 /**
  * This class contains a method to calculate the sum of the squares of special elements in an array.

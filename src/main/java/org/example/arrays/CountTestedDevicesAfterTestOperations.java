@@ -1,4 +1,4 @@
-package org.example;
+package org.example.arrays;
 
 public class CountTestedDevicesAfterTestOperations {
     public static void main(String[] args) {

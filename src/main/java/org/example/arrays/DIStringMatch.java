@@ -1,4 +1,4 @@
-package org.example;
+package org.example.arrays;
 
 public class DIStringMatch {
     public static void main(String[] args) {

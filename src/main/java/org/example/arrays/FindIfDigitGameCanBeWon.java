@@ -1,4 +1,4 @@
-package org.example;
+package org.example.arrays;
 
 /**
  * You are given an array of positive integers nums.

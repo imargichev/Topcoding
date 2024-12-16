@@ -1,7 +1,6 @@
-package org.example;
+package org.example.arrays;
 
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.HashMap;
 
 public class SortArrayByIncreasingFrequency {

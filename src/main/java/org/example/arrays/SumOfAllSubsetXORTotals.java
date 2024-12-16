@@ -1,4 +1,4 @@
-package org.example;
+package org.example.arrays;
 
 /**
  * This class provides a method to calculate the sum of all subset XOR totals for a given array.
