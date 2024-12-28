@@ -9,7 +9,6 @@ public class MergeStringsAlternately {
     }
     public static String mergeAlternately(String word1, String word2) {
         StringBuilder sb = new StringBuilder();
-
         int maxLength = Math.max(word1.length(), word2.length());
 
         for (int i = 0; i < maxLength; i++) {
@@ -19,8 +18,6 @@ public class MergeStringsAlternately {
             if (i < word2.length()) {
                 sb.append(word2.charAt(i));
             }
-
-
     }
         return sb.toString();
     }
