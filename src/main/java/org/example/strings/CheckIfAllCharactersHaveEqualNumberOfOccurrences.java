@@ -25,11 +25,8 @@ public class CheckIfAllCharactersHaveEqualNumberOfOccurrences {
             }
         }
 
-        int valueCount = 0;
         for (int value : storeChars.values()) {
-            valueCount = value;
-
-            if (value != valueCount){
+            if (value != storeChars.get(chars[0])) {
                 return false;
             }
 
