@@ -1,3 +1,4 @@
+/*
 package org.example.strings;
 
 import java.util.ArrayList;
@@ -17,7 +18,7 @@ public class FindCommonCharacters {
 
         for (char c : words[0].toCharArray()) {
             pairChars.put(c, pairChars.getOrDefault(c, 0) + 1);
-            int count = pairChars.values()
+            int count = pairChars.values().size();
             if (count >= size) {
                 result.add(pairChars.k);
             }
@@ -35,3 +36,4 @@ public class FindCommonCharacters {
 
     }
 }
+*/
