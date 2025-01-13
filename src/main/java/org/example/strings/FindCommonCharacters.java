@@ -1,4 +1,3 @@
-/*
 package org.example.strings;
 
 import java.util.ArrayList;
@@ -12,28 +11,36 @@ public class FindCommonCharacters {
         commonChars(words);
     }
     public static List<String> commonChars(String[] words) {
-        Map<Character, Integer> pairChars = new HashMap<>();
         List<String> result = new ArrayList<>();
-        int size = words.length;
+        if (words == null || words.length == 0) {
+            return result;
+        }
+
+        Map<Character, Integer> charCount = new HashMap<>();
 
         for (char c : words[0].toCharArray()) {
-            pairChars.put(c, pairChars.getOrDefault(c, 0) + 1);
-            int count = pairChars.values().size();
-            if (count >= size) {
-                result.add(pairChars.k);
+            charCount.put(c, charCount.getOrDefault(c, 0) + 1);
+        }
+
+        for (int i = 1; i < words.length; i++) {
+            Map<Character, Integer> currentWordCount = new HashMap<>();
+            for (char c : words[i].toCharArray()) {
+                if (charCount.containsKey(c)) {
+                    currentWordCount.put(c, currentWordCount.getOrDefault(c, 0) + 1);
+                }
+            }
+            for (char c : charCount.keySet()) {
+                charCount.put(c, Math.min(charCount.get(c), currentWordCount.getOrDefault(c, 0)));
             }
         }
 
-
-        for (int count : pairChars.values()) {
-            if (count >= size) {
-                result.add(pairChars.k);
+        for (Map.Entry<Character, Integer> entry : charCount.entrySet()) {
+            for (int i = 0; i < entry.getValue(); i++) {
+                result.add(String.valueOf(entry.getKey()));
             }
         }
 
-        return pairChars.size() == size;
-
+        return result;
 
     }
 }
-*/
