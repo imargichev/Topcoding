@@ -6,16 +6,24 @@ public class CheckIfNumberHasEqualDigitCountAndDigitValue {
         System.out.println(num);
     }
     public static boolean digitCount(String num) {
-        int count = 0;
-        int currNumber = 0;
+        int[] frequency = new int[num.length()]; // Масив за броене на честотата на всеки индекс.
 
+        // Преброяване на честотата на всеки индекс.
         for (int i = 0; i < num.length(); i++) {
-            currNumber = Integer.parseInt(String.valueOf(num.charAt(i)));
-            for (int j = 1; j <num.length() ; j++) {
-                if (num.equals(String.valueOf(currNumber))){
-                    count++;
-                }
+            int digit = Character.getNumericValue(num.charAt(i)); // Преобразуване на символа в число.
+            if (digit < num.length()) { // Само ако индексът е валиден (по-малък от дължината на стринга).
+                frequency[digit]++;
             }
         }
+
+        // Проверка на условието.
+        for (int i = 0; i < num.length(); i++) {
+            int expectedCount = Character.getNumericValue(num.charAt(i)); // Колко пъти индексът трябва да се появи.
+            if (frequency[i] != expectedCount) { // Сравняваме очакваното със реалното.
+                return false; // Условие нарушено, връщаме false.
+            }
+        }
+
+        return true; // Всички условия са изпълнени.
     }
 }
