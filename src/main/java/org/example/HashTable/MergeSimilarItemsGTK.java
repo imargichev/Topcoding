@@ -2,7 +2,7 @@ package org.example.HashTable;
 
 import java.util.*;
 
-public class MergeSimilarItems {
+public class MergeSimilarItemsGTK {
     public static void main(String[] args) {
         int[][] items1 = {
                 {1,1},
