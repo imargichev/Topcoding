@@ -5,7 +5,7 @@ import java.util.Set;
 
 public class FindTheDistinctDifferenceArray {
     public static void main(String[] args) {
-        int[] nums = {1, 2, 3, 4, 5};
+        int[] nums = {3,2,3,4,2};
         int[] result = distinctDifferenceArray(nums);
         for (int i = 0; i < result.length; i++) {
             System.out.println(result[i]);
@@ -13,17 +13,23 @@ public class FindTheDistinctDifferenceArray {
     }
 
     public static int[] distinctDifferenceArray(int[] nums) {
-        Set<Integer> set1 = new HashSet<>();
-        int[] result = new int[nums.length];
+        int n = nums.length;
+        int[] result = new int[n];
 
-        for (int prefix = 0; prefix < nums.length; prefix++) {
-            set1.add(nums[prefix]);
-            Set<Integer> set2 = new HashSet<>();
-            for (int suffix = nums.length-1; suffix > prefix; suffix--) {
-                set2.add(nums[suffix]);
-            }
+        Set<Integer> prefixSet = new HashSet<>();
+        Set<Integer> suffixSet = new HashSet<>();
+
+        for (int i = 1; i < n; i++) {
+            suffixSet.add(nums[i]);
         }
 
-        return nums;
+        for (int i = 0; i < n; i++) {
+            result[i] = prefixSet.size() - suffixSet.size();
+            prefixSet.add(nums[i]);
+            suffixSet.remove(nums[i]);
+        }
+
+        return result;
+
     }
 }
