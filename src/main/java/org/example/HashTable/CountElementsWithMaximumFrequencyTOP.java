@@ -1,5 +1,6 @@
 package org.example.HashTable;
 
+import java.util.Map;
 import java.util.Objects;
 import java.util.TreeMap;
 
@@ -10,18 +11,21 @@ public class CountElementsWithMaximumFrequencyTOP {
     }
     public static int maxFrequencyElements(int[] nums) {
         TreeMap<Integer, Integer> frequencyNumbers = new TreeMap<>();
+        int maxFrequency = 0;
+        int totalCount = 0;
 
         for (int num : nums) {
-            frequencyNumbers.put(num, frequencyNumbers.getOrDefault(num, 0) + 1);
+            int freq = frequencyNumbers.getOrDefault(num, 0) + 1;
+            frequencyNumbers.put(num, freq);
+
+            if (freq > maxFrequency) {
+                maxFrequency = freq;
+                totalCount = freq;
+            } else if (freq == maxFrequency) {
+                totalCount += freq;
+            }
         }
 
-        int maxFrequency = frequencyNumbers.values().stream().max(Integer::compare).orElse(0);
-
-        int result = (int) frequencyNumbers.entrySet().stream()
-                .filter(entry -> Objects.equals(entry.getValue(), maxFrequency))
-                .count();
-
-        return result;
-
+        return totalCount;
     }
 }
