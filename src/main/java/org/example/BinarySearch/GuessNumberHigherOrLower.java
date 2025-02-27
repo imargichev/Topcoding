@@ -24,6 +24,7 @@ public class GuessNumberHigherOrLower {
         return -1;
     }
    public static int guess(int num){
+        int pick = 6;
         if (num == pick){
             return 0;
         } else if (num < pick){
